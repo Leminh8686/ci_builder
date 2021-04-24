@@ -1,7 +1,7 @@
 env: # Environment variables to pass to all tasks
     CIRRUS_CLONE_DEPTH: 1 # No need to clone with the whole history
     CIRRUS_WORKING_DIR: "/tmp/ci" # Where to clone the aosp-builder repo
-    rclone_config: ENCRYPTED[67a62976f8469ceab21c38b76dcbdb9721330de9b8009a15890a961c74bdc709393f6f22a2c5f4397163498df6781764]
+    rclone_config: ENCRYPTED[8712a04f5563cc83f88a9462b65f7b8a0d3f130363f90c1fccd65d527e5f73cea7c057012b9e9fdd27c4b339d00e856b]
  
 task:
     name: aosp # Project name

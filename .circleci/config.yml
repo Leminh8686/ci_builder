@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: apon77/aosp:latest
+    steps:
+      - checkout
+      - run:
+          name: Set Up Env
+          command: |
+            sudo apt-get install git-core
+            git clone https://github.com/akhilnarang/scripts
+            git config --global user.name "Foxtrot47"
+            git config --global user.email "jjneutron@outlook.com"
+            bash scripts/setup/android_build_env.sh
+      - run:
+          name: Download CCache
+          command: ./download_ccache
+      - run:
+          name: Sync Source
+          command: ./sync
+      - run:
+          name: Monitor Background
+          command: ./monitor
+      - run:
+          name: Build
+          command: ./build
+      - run: 
+          name: Upload CCache
+          command: ./upload_ccache
+workflows:
+  version: 2
+  build_and_upload:
+    jobs:
+      - build
